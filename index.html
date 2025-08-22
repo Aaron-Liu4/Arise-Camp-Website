@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arise Church Camp 2026</title>
+    <link rel="icon" type="image/x-icon" href="AriseLogo.ico">
+    <!-- Added Poppins font import -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #ffffff;
+            --foreground: #475569;
+            --card: #f8fafc;
+            --card-foreground: #374151;
+            --popover: #ffffff;
+            --popover-foreground: #374151;
+            --primary: #059669;
+            --primary-foreground: #ffffff;
+            --secondary: #10b981;
+            --secondary-foreground: #ffffff;
+            --muted: #f1f5f9;
+            --muted-foreground: #64748b;
+            --accent: #10b981;
+            --accent-foreground: #ffffff;
+            --destructive: #ea580c;
+            --destructive-foreground: #ffffff;
+            --border: #e2e8f0;
+            --input: #f8fafc;
+            --ring: rgba(5, 150, 105, 0.3);
+            --radius: 0.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .scene {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 30%, #B0E0E6 60%);
+        }
+
+        /* Forest Background */
+        .forest {
+            position: absolute;
+            bottom: 35%;
+            left: 0;
+            right: 0;
+            height: 25%;
+            background: linear-gradient(to bottom, #228B22 0%, #32CD32 50%, #90EE90 100%);
+            clip-path: polygon(0% 100%, 5% 80%, 12% 85%, 18% 75%, 25% 80%, 32% 70%, 40% 75%, 48% 65%, 55% 70%, 62% 60%, 70% 65%, 78% 55%, 85% 60%, 92% 50%, 100% 55%, 100% 100%);
+        }
+
+        /* Forest Trees */
+        .forest::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 20%;
+            width: 60%;
+            height: 40px;
+            background: repeating-linear-gradient(
+                90deg,
+                #006400 0px,
+                #006400 15px,
+                #228B22 15px,
+                #228B22 30px,
+                #32CD32 30px,
+                #32CD32 45px
+            );
+            clip-path: polygon(0% 100%, 8% 60%, 15% 80%, 25% 40%, 35% 70%, 45% 30%, 55% 60%, 65% 20%, 75% 50%, 85% 10%, 92% 40%, 100% 0%, 100% 100%);
+        }
+
+        /* Ocean */
+        .ocean {
+            position: absolute;
+            bottom: 20%;
+            left: 0;
+            right: 0;
+            height: 15%;
+            background: linear-gradient(to bottom, #4682B4 0%, #5F9EA0 50%, #20B2AA 100%);
+        }
+
+        /* Ocean waves */
+        .ocean::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: #87CEEB;
+            clip-path: polygon(0% 100%, 10% 0%, 20% 100%, 30% 0%, 40% 100%, 50% 0%, 60% 100%, 70% 0%, 80% 100%, 90% 0%, 100% 100%);
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-20px); }
+        }
+
+        /* Beach Sand */
+        .beach {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20%;
+            background: linear-gradient(to bottom, #F4A460 0%, #DEB887 50%, #D2B48C 100%);
+        }
+
+        /* --- New Torch Styles --- */
+
+        /* Generic Torch Container */
+        .torch {
+            position: absolute;
+            bottom: 15%;
+            z-index: 10;
+        }
+
+        /* Torch Handle (the stick) */
+        .torch .handle {
+            background: linear-gradient(to right, #8B4513 0%, #A0522D 50%, #CD853F 100%);
+            border-radius: 12px;
+            position: relative;
+            box-shadow: inset 2px 0 5px rgba(0,0,0,0.2);
+        }
+
+        /* Torch Top (the metal ring) */
+        .torch .handle::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 15px;
+            background: linear-gradient(to bottom, #616161, #424242);
+            border-radius: 4px;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Left Torch Specifics */
+        .torch.left {
+            left: 5%;
+        }
+        .torch.left .handle {
+            width: 25px;
+            height: 200px;
+        }
+
+        /* Right Torch Specifics */
+        .torch.right {
+            right: 5%;
+        }
+        .torch.right .handle {
+            width: 25px;
+            height: 220px;
+            transform: rotate(-5deg);
+        }
+
+        /* Flame Effect */
+        .flame-wrapper {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            width: 30px;
+            height: 70px;
+            transform: translateX(-50%);
+            margin-bottom: 10px; /* Sits above the metal ring */
+            filter: blur(1.5px);
+        }
+
+        .flame {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffc107; /* Bright yellow core */
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transform-origin: bottom center;
+            animation: flicker-main 2s ease-in-out infinite;
+        }
+
+        .flame::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -5px;
+            width: 40px;
+            height: 100%;
+            background-color: #f44336; /* Red outer flame */
+            border-radius: inherit;
+            animation: flicker-outer 2s ease-in-out infinite;
+            animation-delay: 0.2s;
+            opacity: 0.8;
+        }
+
+        .flame::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background-color: #ffffff; /* White-hot inner core */
+            border-radius: inherit;
+            animation: flicker-inner 2s ease-in-out infinite;
+            animation-delay: 0.4s;
+            opacity: 0.9;
+        }
+
+        @keyframes flicker-main {
+            0%, 100% { transform: scaleY(1) scaleX(1); }
+            50% { transform: scaleY(1.1) scaleX(0.95); }
+        }
+
+        @keyframes flicker-outer {
+            0%, 100% { transform: scaleY(1) skewX(0); }
+            25% { transform: scaleY(1.05) skewX(5deg); }
+            75% { transform: scaleY(0.95) skewX(-5deg); }
+        }
+
+        @keyframes flicker-inner {
+            0%, 100% { transform: scaleY(1); opacity: 0.9; }
+            50% { transform: scaleY(0.9); opacity: 0.7; }
+        }
+
+        /* --- End of Torch Styles --- */
+
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            opacity: 0.8;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+        }
+
+        .cloud1 {
+            width: 80px;
+            height: 40px;
+            top: 15%;
+            left: 20%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud1::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud2 {
+            width: 60px;
+            height: 30px;
+            top: 25%;
+            right: 25%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .cloud2::before {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            left: 5px;
+        }
+
+        .cloud2::after {
+            width: 50px;
+            height: 30px;
+            top: -10px;
+            right: 5px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Sun */
+        .sun {
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px #FFD700;
+        }
+
+        .sun::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, transparent 60%, #FFD700 61%, transparent 62%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Scrollable Page Overlay and Form Styles */
+        .scrollable-page {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            height: 85vh; /* The overall container has a fixed height */
+            
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+            /* Use flexbox to structure the header and body */
+            display: flex;
+            flex-direction: column;
+
+            /* This prevents the form from showing scrollbars outside the rounded corners */
+            overflow: hidden; 
+        }
+
+        .form-header {
+            /* The header is a simple flex item, it takes up only the space it needs */
+            background-color: #00897B;
+            color: white;
+            padding: 24px;
+            text-align: center;
+            /* This prevents the header from shrinking if content is squeezed */
+            flex-shrink: 0; 
+        }
+
+        .form-title {
+            margin: 0 0 8px 0;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+
+        .form-subtitle {
+            margin: 0;
+            font-family: sans-serif;
+            font-weight: 300;
+        }
+
+        /* This is the new scrollable container FOR the iframe */
+        .form-body {
+            /* This makes the container take up ALL remaining vertical space */
+            flex-grow: 1; 
+
+            /* THIS is the element that will scroll if the form is long */
+            overflow-y: auto; 
+
+            /* Allows us to position the iframe perfectly inside */
+            position: relative; 
+        }
+
+        .scrollable-page iframe {
+            /* This technique makes the iframe fill its parent (.form-body) perfectly */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .form-content {
+            padding: 2rem;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .form-section:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+
+        @media (max-width: 640px) {
+            .scrollable-page {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                border-radius: 0;
+            }
+            
+            .form-header {
+                border-radius: 0;
+            }
+            
+            .form-content {
+                padding: 1rem;
+            }
+            
+            .form-section {
+                padding: 1rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-footer {
+            display: none !important;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <!-- Sky with sun and clouds -->
+        <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        
+        <!-- Forest background -->
+        <div class="forest"></div>
+        
+        <!-- Ocean -->
+        <div class="ocean"></div>
+        
+        <!-- Beach -->
+        <div class="beach"></div>
+        
+        <!-- Left Torch -->
+        <div class="torch left">
+            <div class="handle">
+                <div class="flame-wrapper">
+                    <div class="flame"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Torch -->
+        <div class="torch right">
+            <div class="handle">
+                 <div class="flame-wrapper">
+                    <div class="flame"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scrollable-page">
+            <div class="form-header">
+                <h1 class="form-title">Arise Church Camp 2026</h1>
+                <p class="form-subtitle">Theme: Survivor</p>
+            </div>
+            <div class="form-body">
+                <script type="text/javascript" src="https://form.jotform.com/jsform/252328379137867"></script>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const scrollContainer = document.querySelector('.form-body');
+
+            // Check if the element was found before adding the listener.
+            if (scrollContainer) {
+                
+                // Define how many pixels *before* the absolute bottom you want to stop.
+                const offsetFromBottom = 150;
+                scrollContainer.addEventListener('scroll', function() {
+                    const scrollTop = scrollContainer.scrollTop;
+                    const scrollHeight = scrollContainer.scrollHeight;
+                    const clientHeight = scrollContainer.clientHeight;
+                    const scrollLimit = (scrollHeight - clientHeight) - offsetFromBottom;
+                    if (scrollTop >= scrollLimit && scrollLimit > 0) {
+                        scrollContainer.scrollTop = scrollLimit;
+                    }
+                });
+
+            } else {
+                console.error("The scroll container '.form-body' was not found.");
+            }
+        };
+    </script>
+</body>
+</html>
