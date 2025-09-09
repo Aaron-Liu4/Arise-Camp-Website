@@ -858,7 +858,7 @@ textarea {
 
 .victory-fire .particle {
   animation: victoryRise 1.2s ease-in infinite;
-  background-image: radial-gradient(rgb(255, 215, 0) 20%, rgba(255, 215, 0, 0) 70%);
+  background-image: radial-gradient(rgb(255, 100, 0) 20%, rgba(255, 215, 0, 0) 70%);
   border-radius: 50%;
   mix-blend-mode: screen;
   opacity: 0;
