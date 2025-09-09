@@ -372,6 +372,28 @@ textarea {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
+
+.torch-assembly {
+  position: absolute;
+  top: 20px; /* Adjust to move the torch up or down */
+  left: 15%;
+  z-index: 10; /* A high z-index ensures it's on top */
+
+  /* Set a base size for the torch. Adjust this to scale it. */
+  font-size: 6px;
+}
+
+.torch-assembly-right {
+  position: absolute;
+  top: 20px; /* Adjust to move the torch up or down */
+  left: 85%;
+  z-index: 10; /* A high z-index ensures it's on top */
+
+  /* Set a base size for the torch. Adjust this to scale it. */
+  font-size: 6px;
+}
+
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .container {
@@ -467,6 +489,14 @@ textarea {
   .torch-container {
     top: -35px;
   }
+
+.torch-assembly {
+    font-size: 3px;
+  }
+
+  .torch-assembly-right {
+    font-size: 3px;
+  }
 }
 
 .right-torch {
@@ -476,25 +506,6 @@ textarea {
   transform: translateY(-50%);
 }
 
-.torch-assembly {
-  position: absolute;
-  top: 20px; /* Adjust to move the torch up or down */
-  left: 15%;
-  z-index: 10; /* A high z-index ensures it's on top */
-
-  /* Set a base size for the torch. Adjust this to scale it. */
-  font-size: 6px;
-}
-
-.torch-assembly-right {
-  position: absolute;
-  top: 20px; /* Adjust to move the torch up or down */
-  left: 85%;
-  z-index: 10; /* A high z-index ensures it's on top */
-
-  /* Set a base size for the torch. Adjust this to scale it. */
-  font-size: 6px;
-}
 
 .torch-container {
   position: relative;
