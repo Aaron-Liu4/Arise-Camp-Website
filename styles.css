@@ -61,7 +61,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
-  max-width: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
