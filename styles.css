@@ -96,7 +96,7 @@ body {
 .header-banner h1 {
   font-family: "Pirata One", cursive;
   color: #fff;
-  font-size: 2.2em;
+  font-size: 3em;
   margin: 0 20px;
   text-shadow: 3px 3px 0 #5c3d2b, 6px 6px 10px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
@@ -422,8 +422,12 @@ textarea {
     top: -40px;
   }
 
-  .fire {
-    font-size: 2px;
+  .torch-assembly {
+    font-size: 3px;
+  }
+
+  .torch-assembly-right {
+    font-size: 3px;
   }
 }
 
@@ -479,7 +483,7 @@ textarea {
   z-index: 10; /* A high z-index ensures it's on top */
 
   /* Set a base size for the torch. Adjust this to scale it. */
-  font-size: 4px;
+  font-size: 6px;
 }
 
 .torch-assembly-right {
@@ -489,7 +493,7 @@ textarea {
   z-index: 10; /* A high z-index ensures it's on top */
 
   /* Set a base size for the torch. Adjust this to scale it. */
-  font-size: 4px;
+  font-size: 6px;
 }
 
 .torch-container {
