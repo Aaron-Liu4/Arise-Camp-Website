@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survivor Camp Registration</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Note: Added the new fonts from the example -->
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pirata+One|Bilbo+Swash+Caps&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- SVG FILTER FOR WAVY EDGES - ESSENTIAL -->
+    <!-- SVG FILTER FOR WAVY EDGES -->
     <svg style="position:absolute; top:-999px; left:-999px;">
         <filter id="wavy" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
             <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" seed="1" stitchTiles="stitch" result="turbulence" />
@@ -18,15 +17,194 @@
         </filter>
     </svg>
 
-    
+    <!-- Added loading overlay for survivor-themed animation -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="tribal-spinner">
+                <div class="tribal-circle">
+                    <div class="tribal-torch">
+                        <div class="torch-stick"></div>
+                        <div class="fire">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="loading-text">
+                <h3>Preparing Your Adventure...</h3>
+                <p>The tribal council is reviewing your application<span class="dots">...</span></p>
+                <small>This may take a few seconds</small>
+            </div>
+        </div>
+    </div>
 
+    <!-- Added success overlay for registration completion -->
+    <div id="successOverlay" class="success-overlay">
+        <div class="success-content">
+            <div class="success-icon">
+                <div class="victory-torch">
+                    <div class="torch-stick"></div>
+                    <div class="victory-fire">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                </div>
+                <div class="success-checkmark">✓</div>
+                <div class="victory-torch-right">
+                    <div class="torch-stick"></div>
+                    <div class="victory-fire">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="success-text">
+                <h3>Registration Complete!</h3>
+                <div class="email-notice">
+                    <p>You should receive a confirmation email shortly</p>
+                    <small>Check your inbox and spam folder</small>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="camp-header">
             <div class="torch-assembly">
                 <div class="torch-stick"></div>
                 <div class="fire">
-                    <div class="particle"></div>
                     <div class="particle"></div>
                     <div class="particle"></div>
                     <div class="particle"></div>
@@ -130,7 +308,6 @@
                     <div class="particle"></div>
                     <div class="particle"></div>
                     <div class="particle"></div>
-                    <div class="particle"></div>
                 </div>
             </div>
             <div class="header-banner">
@@ -171,14 +348,17 @@
 
                     <label>Age Group *</label>
                     <div class="age-group-options">
-                        <input type="radio" id="adult" name="ageGroup" value="adult" required>
+                        <input type="radio" id="adult" name="ageGroup" value="Adult" required>
                         <label for="adult">Adult</label>
                         
-                        <input type="radio" id="university" name="ageGroup" value="university" required>
+                        <input type="radio" id="university" name="ageGroup" value="University/Concession" required>
                         <label for="university">University/Concession</label>
                         
-                        <input type="radio" id="youth" name="ageGroup" value="youth" required>
-                        <label for="youth">Youth</label>
+                        <input type="radio" id="highSchool" name="ageGroup" value="High School" required>
+                        <label for="highSchool">High School</label>
+
+                        <input type="radio" id="primarySchool" name="ageGroup" value="Primary School" required>
+                        <label for="primarySchool">Primary School</label>
                     </div>
                 </div>
 
@@ -212,7 +392,6 @@
                         ➕ Add Dependent
                     </button>
                 </div>
-
 
                 <button type="submit" class="submit-button">
                     REGISTER FOR ADVENTURE!

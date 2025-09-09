@@ -59,8 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Form submission
+  const loadingOverlay = document.getElementById("loadingOverlay")
+  const successOverlay = document.getElementById("successOverlay")
+
+  successOverlay.classList.add("show")
   form.addEventListener("submit", (event) => {
     event.preventDefault()
+
+    loadingOverlay.classList.add("show")
 
     // Basic form validation
     const fullName = document.getElementById("fullName").value
@@ -92,20 +98,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return
     }
 
-
     // Collect all form data
     const formData = new FormData(form)
     const data = {
-        name: formData.get("fullName"),
-        email: formData.get("email"),
-        phone: formData.get("phone"),
-        gender: formData.get("gender"),
-        address: formData.get("address"),
-        emergencyContact: formData.get("emergencyContact"),
-        ageGroup: formData.get("ageGroup"),
-        transport: formData.get("transport"),
-        medicalInfo: formData.get("medicalInfo") || "",
-        dependents: [],
+      name: formData.get("fullName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      gender: formData.get("gender"),
+      address: formData.get("address"),
+      emergencyContact: formData.get("emergencyContact"),
+      ageGroup: formData.get("ageGroup"),
+      transport: formData.get("transport"),
+      medicalInfo: formData.get("medicalInfo") || "",
+      dependents: [],
     }
 
     // Collect dependents data
@@ -124,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
 
-    // // Send POST request
+    // Send POST request
     console.log(data)
     fetch("https://nvb8wg8dmh.execute-api.ap-southeast-2.amazonaws.com/test/sendEmail", {
       method: "POST",
@@ -136,9 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((result) => {
         console.log("Success:", result)
-        alert(
-          "Congratulations, Tribal Member! Your registration has been submitted successfully. Prepare for the ultimate adventure!",
-        )
+        loadingOverlay.classList.remove("show")
+        successOverlay.classList.add("show")
         form.reset()
         // Clear dependents
         dependentsContainer.innerHTML = ""
@@ -146,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => {
         console.error("Error:", error)
+        loadingOverlay.classList.remove("show")
         alert("There was an error submitting your registration. Please try again.")
       })
   })
