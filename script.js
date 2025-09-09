@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadingOverlay = document.getElementById("loadingOverlay")
   const successOverlay = document.getElementById("successOverlay")
 
-  successOverlay.classList.add("show")
   form.addEventListener("submit", (event) => {
     event.preventDefault()
 
