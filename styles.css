@@ -1,8 +1,17 @@
+
+
+@font-face {
+  font-family: 'Rockwell'; /* This is the name you'll use to refer to the font */
+  src: url('fonts/AlbertusMTStd.otf') format('opentype'); /* Path to your font file */
+  size-adjust: 90%;
+  font-weight: 100;
+}
+
 /* General Body & Container */
 body {
   /* Using the script font and a dark, textured background image */
-  font-family: "Bilbo Swash Caps", cursive;
-  font-size: calc((1vw + 1vh) * 0.5);
+  font-family: "Rockwell", Arial cursive;
+  font-size: calc((1vw + 1vh) * 0.75);
   background-image: url(https://images.unsplash.com/photo-1546484396-fb3fc6f95f98);
   background-size: cover;
   background-attachment: fixed;
@@ -18,7 +27,7 @@ body {
 /* THE NEW PARCHMENT CONTAINER */
 .container {
   width: 75%;
-  max-width: 50vw; /* Max-width to control size on large screens */
+  max-width: 75vw; /* Max-width to control size on large screens */
   margin: 4em 0;
   padding: 4em;
   box-shadow: 2px 3px 20px black, 0 0 125px #8f5922 inset;
@@ -94,7 +103,7 @@ body {
 }
 
 .header-banner h1 {
-  font-family: "Pirata One", cursive;
+  font-family: "Rockwell", 'Rockwell', cursive;
   color: #fff;
   font-size: 3em;
   margin: 0 20px;
@@ -104,7 +113,7 @@ body {
 }
 
 .camp-header h2 {
-  font-family: "Pirata One", cursive;
+  font-family: "Rockwell", cursive;
   color: #8b4513;
   font-size: 1.6em;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
@@ -152,7 +161,7 @@ body {
   margin-top: 0;
   margin-bottom: 20px;
   color: #5c3d2b;
-  font-family: "Pirata One", cursive;
+  font-family: "Rockwell", cursive;
   font-size: 2em;
   border-bottom: 3px dashed #d2b48c;
   padding-bottom: 12px;
@@ -172,7 +181,7 @@ label {
   font-weight: 600;
   color: #5c3d2b;
   font-size: 1.3em;
-  font-family: "Open Sans", sans-serif; /* Using a more readable font for labels */
+  font-family: "Rockwell", sans-serif; /* Using a more readable font for labels */
 }
 
 input[type="text"],
@@ -188,7 +197,7 @@ textarea {
   box-sizing: border-box;
   background: #fffef0;
   transition: all 0.3s ease;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Rockwell', sans-serif;
   color: #5c3d2b;
 }
 
@@ -226,7 +235,7 @@ textarea {
 .gender-options label,
 .age-group-options label,
 .transport-options label {
-  background: linear-gradient(135deg, #d2b48c 0%, #ddb892 100%);
+  background: linear-gradient(135deg, #dfbf95 0%, #ddb892 100%);
   color: #5c3d2b;
   padding: 12px 18px;
   border-radius: 25px;
@@ -238,7 +247,7 @@ textarea {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Rockwell", sans-serif;
   font-size: 1.1em;
 }
 
@@ -254,7 +263,15 @@ textarea {
   background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
+  transform: translateY(-6px);
+}
+
+.gender-options input[type="radio"]:not(:checked) + label:hover,
+.age-group-options input[type="radio"]:not(:checked) + label:hover,
+.transport-options input[type="radio"]:not(:checked) + label:hover {
+  transform: translateY(-3px);
+  filter: brightness(95%); /* Using 95% for a more subtle darken effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better lift effect */
 }
 
 /* Other elements styling remains largely the same, but you can adjust as needed */
@@ -309,13 +326,14 @@ textarea {
 }
 
 .add-dependent-btn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-  color: white;
+  background: linear-gradient(135deg, #dfbf95 0%, #dfbf95 100%);
+  color: #5c3d2b;
   border: none;
   padding: 15px 25px;
   border-radius: 25px;
   cursor: pointer;
   font-size: 1.1em;
+  font-family: Rockwell;
   font-weight: 600;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -336,7 +354,7 @@ textarea {
   background: linear-gradient(135deg, #a0522d 0%, #8b4513 50%, #a0522d 100%);
   background-size: 200% 200%;
   color: #fff;
-  font-family: "Luckiest Guy", cursive;
+  font-family: "Rockwell", cursive;
   font-size: 1.6em;
   border: none;
   border-radius: 15px;
@@ -998,8 +1016,8 @@ textarea {
 }
 
 .success-text h3 {
-  font-family: "Pirata One", cursive;
-  font-size: 2.5rem;
+  font-family: "Rockwell", cursive;
+  font-size: 4rem;
   color: #d4af37;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -1041,9 +1059,9 @@ textarea {
   padding: 15px 30px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 600;
-  font-family: "Pirata One", cursive;
+  font-family: "Rockwell", cursive;
   transition: all 0.3s ease;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -1128,8 +1146,8 @@ textarea {
 }
 
 .loading-text h3 {
-  font-family: "Pirata One", cursive;
-  font-size: 2rem;
+  font-family: "Rockwell", cursive;
+  font-size: 3.5rem;
   color: #d4af37;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
